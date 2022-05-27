@@ -20,17 +20,26 @@
 - `docker ps` - Show running Processes
 - `docker run -it node` - Run a container in interactive mode
 - `docker run -p <local_port>:<container_port> <image>` - Run a container with a port mapping
-- `docker start <image_name>` - Start a existing container
+- `docker start <container_name>` - Start a existing container
+
 - **Managing Containers** (add --help to see all options)
+
   - can be named (`--name`)
   - can be configured in detail (see `--help`)
   - can be listed (`docker ps`)
   - can be removed (`docker rm`)
+
 - **Managing Images** (add --help to see all options)
   - can be tagged (named) [`-t`, `docker tag ...`]
   - can be listed (`docker images`)
   - can be analyzed (`docker inspect`)
   - can be removed (`docker rmi`, `docker prune`)
+
+### `docker prune` Command
+
+- Removes all stopped containers (`docker container prune`)
+- Remove all unused images (`docker image prune`)
+- Remove all unused containers, networks, images, and volumes (`docker system prune`)
 
 ### Attach Mode and Detach Mode
 
@@ -38,6 +47,7 @@
 - `docker run <image_id>` - Start with attach mode by default
 - `docker run -d <image_id>` - Running Container in detached mode
 - `docker start <container_id>` - Start a container in detached mode by default
+- `docker logs <container_id>` - Show logs of a container
 
 ### Removing Containers and Images:
 
@@ -63,6 +73,8 @@
   - _tag_ - Defines a specified image withing a group of images (example: "14")
 
 - `docker build -t <my_name:my_tag> <source_dir>`
+- Renaming an existing image:
+  - `docker tag <image_id> <new_name:new_tag>`
 
 ### Sharing Images and Containers
 
@@ -80,8 +92,8 @@
 | Official Docker Image Registry        | Any provider/registry we want to use |
 | Public, private and "official" Images | Only our own (or Team) Images        |
 
-- **Share**: `docker puch <IMAGE_NAME>`
-- **Use**: `docker pull <IMAGE_NAME>`
+- **Share**: `docker puch <IMAGE_NAME>` [In case of Private Registry `docker push <HOST:IMAGE_NAME>`]
+- **Use**: `docker pull <IMAGE_NAME>` [In case of Private Registry `docker pull <HOST:IMAGE_NAME>`]
 
 ### Foundation Summary
 
@@ -94,4 +106,3 @@
 - **Containers**:
   - `Containers` are created with `docker run IMAGE` and can be configured with various options/flags
   - `Containers` can be listed (`docker ps`) and removed (`docker rm`) and stopped + started (`docker stop / start`)
-  -

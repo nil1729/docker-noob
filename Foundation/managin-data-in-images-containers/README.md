@@ -56,7 +56,6 @@
   - Great for persistent, editable (by us) data. (e.g. Source Code)
   - `docker run -v /path/to/code:/app/code <image_id>`
   - `docker run -v "/path/to/code:/app/code:ro" <image_id>` [**Read-Only**]
-  -
 
 | Anonymous Volumes                                              | Named Volumes                                                  | Bind Mounts                                                      |
 | -------------------------------------------------------------- | -------------------------------------------------------------- | ---------------------------------------------------------------- |
@@ -64,3 +63,19 @@
 | Survives container shutdown / restart unless --rm used         | Survives container shutdown / restart - removal via Docker CLI | Survives container shutdown / restart - removal on host fs       |
 | Can not be shared across containers                            | Can be share across containers                                 | Can be shared across containers                                  |
 | Since it's anonymous, it can't be re-used (even on same image) | Can be re-used for same container (across restarts)            | Can be re-used for same container (across restarts)              |
+
+## Volume Commands
+
+- `docker volume create` - Create a new Volume
+- `docker volume ls` - List all Volumes
+- `docker volume inspect` - Inspect a Volume (eg. to get the mounted path)
+- `docker volume rm` - Remove a Volume
+
+## Summary
+
+- Containers can read + write data. **Volumes** can help with data storage, **Bind Storage** can help with direct container interaction
+- **Containers can read + write data,** but written **data is lost** if the container is removed
+- **Volumes** are folders on the host machine, managed by Docker, which are mounted into the Container
+- **Named Volumes** survive container removal and can therefore be used to store persistent data.
+- **Anonymous Volumes** are attached to a container - they can be used to save (temporary) data inside the container.
+- **Bind Mounts** are folders on the host machine which are specified by the user and mounted into the containers - like **Named Volumes**

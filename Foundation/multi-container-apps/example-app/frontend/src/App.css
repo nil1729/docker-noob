@@ -1,0 +1,81 @@
+.App {
+	text-align: center;
+}
+
+.error_alert_section,
+.goal_input_section,
+.goals_list_section {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	background-color: white;
+	width: 35%;
+	margin: auto;
+	padding: 0 0 20px 0;
+	border-radius: 15px;
+	margin-top: 30px;
+}
+.error_alert_section {
+	background-color: #f8a7a7;
+}
+.error_alert_section p {
+	margin: 0;
+	margin-bottom: 10px;
+}
+
+.goals_list_section {
+	padding: 20px 0;
+}
+
+.goal_input_section input {
+	box-shadow: none;
+	outline: none;
+	height: 40px;
+	width: 80%;
+	border-radius: 25px;
+	border: 1px solid grey;
+	font-size: 20px;
+	padding: 0 15px 0 15px;
+	text-align: center;
+}
+
+.goal_input_section input:focus {
+	background-color: #6e276d3f;
+}
+
+.goal_input_section button {
+	outline: none;
+	border: none;
+	box-shadow: none;
+	margin-top: 20px;
+	background-color: #6e276d;
+	padding: 10px 20px;
+	border-radius: 20px;
+	color: white;
+	cursor: pointer;
+	font-size: 20px;
+}
+
+.goals_list_section .goal_item {
+	outline: none;
+	border: none;
+	box-shadow: none;
+	background-color: rgb(53, 21, 128);
+	padding: 10px 20px;
+	border-radius: 20px;
+	color: white;
+	cursor: pointer;
+	font-size: 20px;
+	margin-bottom: 15px;
+	width: 75%;
+	font-weight: 900;
+}
+
+.goals_list_section .goal_item:hover {
+	background-color: #6e276dc9;
+}
+
+.goals_list_section .goal_item:last-child {
+	margin-bottom: 0;
+}

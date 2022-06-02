@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import './App.css';
 
 const App = () => {
-	const BASE_URL = 'http://localhost:8081';
+	const BASE_URL = 'http://localhost:8080';
 	const [goals, set_goals] = useState([]);
 	const [goal_input, set_goal_input] = useState('');
 	const [adding_new_goal, set_adding_new_goal] = useState(false);

@@ -1,0 +1,46 @@
+version: '3.8'
+services:
+  mongodb:
+    image: 'mongo'
+    container_name: my_mongodb
+    volumes:
+      - mongo_data_v2:/data/db
+    # environment:
+    #   - MONGO_INITDB_ROOT_USERNAME=nil1729
+    #   - MONGO_INITDB_ROOT_PASSWORD=password
+    env_file:
+      - ./env/mongo.env
+
+  backend:
+    # build: ./backend
+    build:
+      context: ./backend # Context must be set to /backend folder since we are copying the whole folder into the image.
+      dockerfile: Dockerfile
+    #   args:
+    #     - name=value
+    ports:
+      - '8080:8080'
+    volumes:
+      - backend_logs_v2:/app/logs
+      - ./backend:/app
+      - /app/node_modules
+    env_file:
+      - ./env/backend.env
+    depends_on:
+      - mongodb
+
+  frontend:
+    build: ./frontend
+    ports:
+      - '3000:3000'
+    # stdin_open: true
+    # tty: true
+    volumes:
+      - ./frontend/src:/app/src
+      - /app/node_modules
+    depends_on:
+      - backend
+
+volumes:
+  mongo_data_v2:
+  backend_logs_v2:
